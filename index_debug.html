@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect Wallet ke 39 Game</title>
+    <script src="https://cdn.jsdelivr.net/npm/web3/dist/web3.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+        button { padding: 10px 20px; font-size: 16px; cursor: pointer; }
+        ul { list-style: none; padding: 0; }
+        li { margin: 10px 0; }
+        #errorMessage { color: red; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>Hubungkan Wallet ke 39 Game</h1>
+    <button id="connectWallet">🔗 Connect Wallet</button>
+    <p id="walletAddress"></p>
+    <p id="errorMessage"></p>
+    <h2>Daftar Game</h2>
+    <ul id="gameList"></ul>
+
+    <script>
+        document.getElementById("connectWallet").addEventListener("click", async function() {
+            const errorMsg = document.getElementById("errorMessage");
+            errorMsg.innerText = ""; // Hapus pesan error sebelumnya
+
+            if (window.ethereum) {
+                try {
+                    const accounts = await ethereum.request({ method: "eth_requestAccounts" });
+                    document.getElementById("walletAddress").innerText = "Wallet: " + accounts[0];
+                } catch (error) {
+                    errorMsg.innerText = "Error: " + error.message;
+                    console.error("Wallet Connection Error:", error);
+                    alert("Gagal menghubungkan wallet! Cek console untuk detail.");
+                }
+            } else {
+                errorMsg.innerText = "MetaMask tidak terdeteksi! Silakan instal terlebih dahulu.";
+                alert("MetaMask tidak terdeteksi! Silakan instal terlebih dahulu.");
+            }
+        });
+
+        const games = [
+            { name: "Game 1", link: "https://game1.com" },
+            { name: "Game 2", link: "https://game2.com" },
+            { name: "Game 3", link: "https://game3.com" },
+            { name: "Game 4", link: "https://game4.com" },
+            { name: "Game 5", link: "https://game5.com" },
+            { name: "Game 6", link: "https://game6.com" },
+            { name: "Game 7", link: "https://game7.com" },
+            { name: "Game 8", link: "https://game8.com" },
+            { name: "Game 9", link: "https://game9.com" },
+            { name: "Game 10", link: "https://game10.com" },
+            { name: "Game 11", link: "https://game11.com" },
+            { name: "Game 12", link: "https://game12.com" },
+            { name: "Game 13", link: "https://game13.com" },
+            { name: "Game 14", link: "https://game14.com" },
+            { name: "Game 15", link: "https://game15.com" },
+            { name: "Game 16", link: "https://game16.com" },
+            { name: "Game 17", link: "https://game17.com" },
+            { name: "Game 18", link: "https://game18.com" },
+            { name: "Game 19", link: "https://game19.com" },
+            { name: "Game 20", link: "https://game20.com" },
+            { name: "Game 21", link: "https://game21.com" },
+            { name: "Game 22", link: "https://game22.com" },
+            { name: "Game 23", link: "https://game23.com" },
+            { name: "Game 24", link: "https://game24.com" },
+            { name: "Game 25", link: "https://game25.com" },
+            { name: "Game 26", link: "https://game26.com" },
+            { name: "Game 27", link: "https://game27.com" },
+            { name: "Game 28", link: "https://game28.com" },
+            { name: "Game 29", link: "https://game29.com" },
+            { name: "Game 30", link: "https://game30.com" },
+            { name: "Game 31", link: "https://game31.com" },
+            { name: "Game 32", link: "https://game32.com" },
+            { name: "Game 33", link: "https://game33.com" },
+            { name: "Game 34", link: "https://game34.com" },
+            { name: "Game 35", link: "https://game35.com" },
+            { name: "Game 36", link: "https://game36.com" },
+            { name: "Game 37", link: "https://game37.com" },
+            { name: "Game 38", link: "https://game38.com" },
+            { name: "Game 39", link: "https://game39.com" }
+        ];
+
+        const gameList = document.getElementById("gameList");
+        games.forEach(game => {
+            const li = document.createElement("li");
+            li.innerHTML = `<a href="${game.link}" target="_blank">${game.name}</a>`;
+            gameList.appendChild(li);
+        });
+    </script>
+</body>
+</html>
